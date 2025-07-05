@@ -9,7 +9,6 @@
     android:elevation="2dp"
     android:clipToPadding="false">
 
-
     <ImageView
         android:id="@+id/articleImage"
         android:layout_width="match_parent"
@@ -17,8 +16,7 @@
         android:scaleType="centerCrop"
         android:contentDescription="@string/news_image"
         android:background="@color/image_placeholder"
-        android:clipToOutline="true" />
-
+        android:clipToOutline="true"/>
 
     <TextView
         android:id="@+id/articleTitle"
@@ -27,10 +25,10 @@
         android:layout_marginTop="12dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/text_primary"
         android:lineSpacingMultiplier="1.2"
         android:maxLines="3"
-        android:ellipsize="end" />
-
+        android:ellipsize="end"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,24 +41,24 @@
             android:id="@+id/articleSource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/source_color"
+            android:textColor="@color/source_badge"
             android:textSize="12sp"
             android:textAllCaps="true"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <View
             android:layout_width="4dp"
             android:layout_height="4dp"
             android:layout_marginHorizontal="8dp"
-            android:background="@color/dot_separator"
-            android:shape="oval" />
+            android:background="@color/icon_inactive"
+            android:shape="oval"/>
 
         <TextView
             android:id="@+id/articleDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/date_color"
-            android:textSize="12sp" />
+            android:textColor="@color/timestamp"
+            android:textSize="12sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -74,21 +72,20 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:src="@drawable/ic_launcher_background"
-            android:layout_marginEnd="4dp"
-            app:tint="@color/author_icon_color" />
+            app:tint="@color/icon_inactive"
+            android:layout_marginEnd="4dp"/>
 
         <TextView
             android:id="@+id/articleAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/author_text_color"
+            android:textColor="@color/author_text"
             android:textSize="12sp"/>
     </LinearLayout>
-
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
-        android:background="@color/divider_color"/>
+        android:background="@color/divider"/>
 </LinearLayout>
