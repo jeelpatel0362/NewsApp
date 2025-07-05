@@ -12,7 +12,7 @@ interface NewsApiService {
         @Query("topic") topic: String = "TECHNOLOGY",
         @Query("section") section: String = "CAQiSkNCQVNNUW9JTDIwdk1EZGpNWFlTQldWdUxVZENHZ0pKVENJT0NBUWFDZ29JTDIwdk1ETnliSFFxQ2hJSUwyMHZNRE55YkhRb0FBKi4IACoqCAoiJENCQVNGUW9JTDIwdk1EZGpNWFlTQldWdUxVZENHZ0pKVENnQVABUAE",
         @Query("limit") limit: Int = 20,
-        @Query("country") country: String = "US",
+        @Query("country") country: String = "IN",
         @Query("lang") lang: String = "en",
         @Header("x-rapidapi-host") host: String = Constants.API_HOST,
         @Header("x-rapidapi-key") key: String = Constants.API_KEY
