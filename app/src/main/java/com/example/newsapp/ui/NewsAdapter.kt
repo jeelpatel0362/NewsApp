@@ -7,16 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newsapp.R
 import com.example.newsapp.model.NewsArticle
 
+class NewsAdapter(private val onClick: (NewsArticle) -> Unit) :
+    RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
-    private var articles = listOf<NewsArticle>()
+    private val articles = mutableListOf<NewsArticle>()
 
     inner class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.articleTitle)
@@ -36,10 +35,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(imageView)
 
-            itemView.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(article.source_url))
-                itemView.context.startActivity(intent)
-            }
+            itemView.setOnClickListener { onClick(article) }
         }
     }
 
@@ -56,7 +52,14 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     override fun getItemCount() = articles.size
 
     fun setArticles(newArticles: List<NewsArticle>) {
-        articles = newArticles
+        articles.clear()
+        articles.addAll(newArticles)
         notifyDataSetChanged()
+    }
+
+    fun addArticles(newArticles: List<NewsArticle>) {
+        val startPosition = articles.size
+        articles.addAll(newArticles)
+        notifyItemRangeInserted(startPosition, newArticles.size)
     }
 }

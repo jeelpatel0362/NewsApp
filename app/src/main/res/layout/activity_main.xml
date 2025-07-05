@@ -23,12 +23,33 @@
         android:visibility="gone"
         android:indeterminateTint="@color/on_secondary"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/newsRecyclerView"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:visibility="visible"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp"/>
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/newsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_gravity="bottom|center_horizontal"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/on_primary"
+            android:textAllCaps="false"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"/>
+    </FrameLayout>
 </LinearLayout>
